@@ -1,0 +1,18 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>{% block title %}Plan zajec taki piekny{% endblock %}</title>
+</head>
+<body>
+  <main>
+    {% block content %}
+         {% if user.is_authenticated %}
+                Secret: {{ user.secret }}!
+             <p>Zalogowano</p>
+{% else %}
+         <p>Musisz sie zalogowac</p>
+        {% endif %}
+    {% endblock %}
+  </main>
+</body>
+</html>

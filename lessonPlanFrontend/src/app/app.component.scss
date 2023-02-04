@@ -1,0 +1,13 @@
+::ng-deep {
+    body {
+    background-color: rgb(255, 246, 220);
+}}
+
+mat-toolbar {
+    background-color: rgb(255, 218, 115);
+    gap: 24px;
+}
+
+mat-toolbar span {
+    cursor: pointer;
+}

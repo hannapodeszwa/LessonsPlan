@@ -1,0 +1,16 @@
+:host {
+    display: flex;
+    flex-direction: column;
+    height: calc(100% - 80px);
+}
+
+.top-bar * {   
+    width: 20%;
+    text-align: center;
+    font-size: calc(10px + 1vw);
+}
+
+plan {
+    display: block;
+    height: 100%;
+}

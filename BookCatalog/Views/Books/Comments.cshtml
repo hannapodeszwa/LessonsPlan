@@ -1,0 +1,33 @@
+﻿@model IEnumerable<BookCatalog.Models.Comment>
+
+@{
+    ViewData["Title"] = "Comments";
+}
+
+<h1>Comments</h1>
+
+<p>
+    <a asp-action="CreateComment" asp-route-bookId="@ViewBag.id">Create New Comment</a>
+</p>
+
+
+
+<table class="table" width="50px">
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+                <td width="20px">
+                    @Html.DisplayFor(modelItem => item.Text )
+            </td>
+            @if(@item.UserId.Equals(@ViewBag.user))
+            {
+            <td>
+               @* <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |*@
+                <a asp-action="DeleteComment" asp-route-id="@item.Id">Delete</a>
+            </td>
+            }
+        </tr>
+}
+    </tbody>
+</table>

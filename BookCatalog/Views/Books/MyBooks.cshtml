@@ -1,0 +1,51 @@
+﻿@model IEnumerable<Tuple<BookCatalog.Models.Book,BookCatalog.Models.UserBook>>
+
+@{
+    ViewData["Title"] = "Books catalog";
+}
+
+<h1>My books</h1>
+
+
+<form asp-controller="Books" asp-action="MyBooks" method="get">
+    <p>
+        Title: <input type="text" name="SearchString" />
+        <input type="submit" value="Filter" />
+    </p>
+</form>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Item1.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Item1.Author)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Item2.State)
+                </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Item1.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Item1.Author)
+            </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Item2.State)
+                </td>
+            <td>
+                <a asp-action="AddToMyBooks" asp-route-id="@item.Item1.Id">Change state</a> |
+                <a asp-action="DeleteFromMyBooks" asp-route-id="@item.Item2.Id">Delete from my books</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

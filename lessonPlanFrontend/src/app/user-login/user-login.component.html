@@ -1,0 +1,23 @@
+<div class="login-form-container">
+  <h2>Logowanie się</h2>
+  <form [formGroup]="logInForm" (ngSubmit)="onSubmit(logInForm)">
+    <p>
+      <mat-form-field appearance="fill">
+        <mat-label>Nazwa użytkownika</mat-label>
+        <input matInput formControlName="username" />
+      </mat-form-field>
+    </p>
+    <p>
+      <mat-form-field appearance="fill">
+        <mat-label>Hasło</mat-label>
+        <input matInput formControlName="password" type="password" />
+      </mat-form-field>
+    </p>
+    <p>
+      <button mat-flat-button color="primary" type="submit" cdkFocusInitial>
+        ZALOGUJ SIĘ
+      </button>
+    </p>
+    <p *ngIf="errorText">Błąd: {{ errorText }}</p>
+  </form>
+</div>

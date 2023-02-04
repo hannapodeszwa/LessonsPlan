@@ -1,0 +1,46 @@
+<div *ngIf="!isAuthorized" class="login-prompt">
+  <mat-card>
+    <h1>Aby zobaczyć swój plan zajęć, zaloguj się.</h1>
+  </mat-card>
+</div>
+<div *ngIf="isAuthorized" style="display: flex; height: 100%; width: 100%">
+  <div
+    style="background-color: rgb(253, 255, 241); width: 20%; position: relative"
+  >
+    <ng-container *ngFor="let lesson of lessonsByDay[0]">
+      <lesson [lesson]="lesson"></lesson>
+    </ng-container>
+  </div>
+
+  <div
+    style="background-color: rgb(241, 252, 255); width: 20%; position: relative"
+  >
+    <ng-container *ngFor="let lesson of lessonsByDay[1]">
+      <lesson [lesson]="lesson"></lesson>
+    </ng-container>
+  </div>
+
+  <div
+    style="background-color: rgb(253, 255, 241); width: 20%; position: relative"
+  >
+    <ng-container *ngFor="let lesson of lessonsByDay[2]">
+      <lesson [lesson]="lesson"></lesson>
+    </ng-container>
+  </div>
+
+  <div
+    style="background-color: rgb(241, 252, 255); width: 20%; position: relative"
+  >
+    <ng-container *ngFor="let lesson of lessonsByDay[3]">
+      <lesson [lesson]="lesson"></lesson>
+    </ng-container>
+  </div>
+
+  <div
+    style="background-color: rgb(253, 255, 241); width: 20%; position: relative"
+  >
+    <ng-container *ngFor="let lesson of lessonsByDay[4]">
+      <lesson [lesson]="lesson"></lesson>
+    </ng-container>
+  </div>
+</div>

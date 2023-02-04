@@ -1,0 +1,23 @@
+<p>
+  <mat-toolbar>
+    <span [routerLink]="'./'">Strona Główna</span>
+    <span [routerLink]="'plan/'">Plan Zajęć</span>
+    <span
+      style="margin-left: auto"
+      *ngIf="!isUserLoggedIn()"
+      [routerLink]="'login/'"
+      >Logowanie</span
+    >
+    <span *ngIf="!isUserLoggedIn()" [routerLink]="'register/'"
+      >Rejestracja</span
+    >
+    <span style="margin-left: auto; cursor: initial" *ngIf="isUserLoggedIn()"
+      >Zalogowano jako: {{ username }}</span
+    >
+    <span *ngIf="isUserLoggedIn()" (click)="logOut()" [routerLink]="'login/'"
+      >Wyloguj</span
+    >
+  </mat-toolbar>
+</p>
+
+<router-outlet></router-outlet>

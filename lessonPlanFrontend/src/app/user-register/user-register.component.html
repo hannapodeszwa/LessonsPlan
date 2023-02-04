@@ -1,0 +1,38 @@
+<div class="login-form-container">
+  <h2>Rejestracja</h2>
+  <form [formGroup]="registerForm" (ngSubmit)="onSubmit(registerForm)">
+    <p>
+      <mat-form-field appearance="fill">
+        <mat-label>Nazwa użytkownika</mat-label>
+        <input matInput formControlName="username" />
+      </mat-form-field>
+    </p>
+    <p>
+      <mat-form-field appearance="fill">
+        <mat-label>Hasło</mat-label>
+        <input matInput formControlName="password" type="password" />
+      </mat-form-field>
+    </p>
+    <p>
+      <mat-form-field appearance="fill">
+        <mat-label>Tajne informacje</mat-label>
+        <input matInput formControlName="secret" />
+      </mat-form-field>
+    </p>
+    <p>
+      <button mat-flat-button color="primary" type="submit" cdkFocusInitial>
+        ZAREJESTRUJ SIĘ
+      </button>
+    </p>
+    <p>
+      Hasło musi mieć długość minimum 8 znaków i zawierać co najmniej jedną
+      literę.
+    </p>
+    <p *ngIf="errorText">Błąd: {{ errorText }}</p>
+    <p *ngIf="activationLink">
+      (W tym momencie należy wyobrazić sobie, że wiadomość została wysłana
+      mailem) Kliknij tutaj, aby aktywować swoje konto:
+      <a href="{{ activationLink }}">{{ activationLink }}</a>
+    </p>
+  </form>
+</div>
